@@ -109,6 +109,53 @@ let min = Math.min(...bici.map(element => element.peso));
 
 console.log(min)
 
+/*
+<--------------------------------------------------------------------------------------->
+Snack4
+Creare un array di oggetti di squadre di calcio. 
+Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti. Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
+Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti. 
+Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
+*/
 
+const squadre = [
+    {
+        nome: 'Napoli',
+        punti: 0,
+        fouls: 0
+    },
+    {
+        nome: 'Milan',
+        punti: 0,
+        fouls: 0
+    },
+    {
+        nome: 'Inter',
+        punti: 0,
+        fouls: 0
+    },
+    {
+        nome: 'Atalanta',
+        punti: 0,
+        fouls: 0
+    },
+    {
+        nome: 'Bologna',
+        punti: 0,
+        fouls: 0
+    },
+]
+//Genero una funzione che mi ritorna dei numeri random quando viene invocata
+function randomNumber(min,max){
+    return Math.floor(Math.random()* max - min + min)+min;
+}
+//Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti. 
+squadre.forEach((element) => {
+    return element.punti = randomNumber(1,50), element.fouls = randomNumber(1,30);
+})
+console.log(squadre);
 
-
+// destrutturazione
+squadre.forEach(({nome, fouls},index) =>{
+    console.log(nome, fouls);
+})

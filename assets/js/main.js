@@ -16,12 +16,9 @@ myArray.forEach((index) => {
 
 console.log(array);
 
-const newArray = myArray.filter((element, index) => { // filtra element(elementi) e indice (index) dentro myarray:
-    if(index > 0 && index < 4){ //se l'indice (posizione) è maggiore di zero e indice minore di 4 :
-        return true; // ritorna true ( e quindi li filtra in array)
-    }
-    else{
-        return false;
+const newArray = myArray.filter((element, index) => {
+    if(index > 0 && index < 4){ 
+        return true; 
     }
 });
 console.log(newArray);
@@ -53,18 +50,17 @@ let students = [
     { name: 'Francesca', id: 120, grades: 84 },
   ];
 
-const targhe = students.map((element) => {
+const targhe = students.map((element) => { 
     return element.name.toUpperCase();
-})
+});
+
+
 
 console.log(targhe);
 
 const studentiPremiati = students.filter((element) => {
     if(element.grades >= 70){
         return true;
-    }
-    else{
-        return false
     }
 });
 
@@ -74,9 +70,45 @@ const studentiIdSuperiore = students.filter((element) => {
     if(element.grades >= 70 && element.id >= 120){
         return true;
     }
-    else{
-        return false
-    }
 });
 
 console.log(studentiIdSuperiore);
+
+
+/*
+Snack 3
+Creare un array di oggetti: Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. Stampare a schermo la bici con peso minore utilizzando destructuring e template literal
+*/
+const bici = [
+    {
+        nome: 'Colnago',
+        peso: 12
+    },
+    {
+        nome: 'Mountain Bike',
+        peso: 26
+    },
+    {
+        nome: 'Run Bike',
+        peso: 18
+    }
+];
+
+// let biciLeggera = bici[0];
+// console.log(biciLeggera);
+
+
+
+let min = Math.min(...bici.map((element) => {
+    return element.peso
+}));
+/*
+VERSIONE SHORT
+let min = Math.min(...bici.map(element => element.peso)); 
+*/
+
+console.log(min)
+
+
+
+

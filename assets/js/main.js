@@ -82,7 +82,7 @@ Creare un array di oggetti: Ogni oggetto descriverà una bici da corsa con le se
 const bici = [
     {
         nome: 'Colnago',
-        peso: 12
+        peso: 18
     },
     {
         nome: 'Mountain Bike',
@@ -90,14 +90,12 @@ const bici = [
     },
     {
         nome: 'Run Bike',
-        peso: 18
+        peso: 12
     }
 ];
 
-// let biciLeggera = bici[0];
+// 
 // console.log(biciLeggera);
-
-
 
 let min = Math.min(...bici.map((element) => {
     return element.peso
@@ -109,6 +107,20 @@ let min = Math.min(...bici.map(element => element.peso));
 
 console.log(min)
 
+//Versione corretta con quello spiegato a lezione :
+let biciLeggera = bici[0]; //oggetto che mi serve per poter fare un confronto con le altre tramite la condizione if
+
+for ( let i = 0; i < bici.length; i++ ) {
+
+    let elementoCorrente = bici[i];
+    let { peso } = elementoCorrente;
+
+    if ( peso < biciLeggera.peso ){
+        biciLeggera = elementoCorrente;
+    }
+};
+
+console.log( biciLeggera );
 /*
 <--------------------------------------------------------------------------------------->
 Snack4
@@ -147,7 +159,7 @@ const squadre = [
 ]
 //Genero una funzione che mi ritorna dei numeri random quando viene invocata
 function randomNumber(min,max){
-    return Math.floor(Math.random()* max - min + min)+min;
+    return Math.floor(Math.random()* max - min + 1)+min;
 }
 //Generare numeri random al posto degli 0 nelle proprietà: Punti fatti e falli subiti. 
 squadre.forEach((element) => {
